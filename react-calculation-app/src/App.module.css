@@ -8,3 +8,16 @@
     position: relative;
   }
   
+  @media (max-width: 768px) {
+  .top-bar .navigation a {
+    font-size: 16px;
+  }
+
+  .main-container h1 {
+    font-size: 24px;
+  }
+
+  .instructions-section h2 {
+    font-size: 20px;
+  }
+}

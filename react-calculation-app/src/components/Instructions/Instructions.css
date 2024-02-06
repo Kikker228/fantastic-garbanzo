@@ -1,0 +1,21 @@
+.instructions-section {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-top: 1px solid #eaeaea;
+}
+
+.instructions-section h2 {
+  color: #333;
+  text-align: center;
+}
+
+.instructions-list {
+  max-width: 600px;
+  margin: auto;
+  padding: 0;
+  text-align: left;
+}
+
+.instructions-list li {
+  margin-bottom: 10px;
+}
