@@ -1,4 +1,3 @@
-```markdown
 # Инструкция по запуску проектов
 
 ## React Calculation App
