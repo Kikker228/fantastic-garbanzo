@@ -4,14 +4,55 @@ import './Instructions.css';
 const Instructions = () => {
   return (
     <section id="instructions" className="instructions-section">
-      <h2>How to Use BeCoMe</h2>
-      <p>Follow the steps below to express your expert opinion using our tools:</p>
+      <h2>Introduction</h2>
+      <p>
+        Real-world systems are influenced by many ambiguous circumstances, which complicates planning, modeling, prediction of these systems and decision-making. Therefore, decision-making procedures often rely on the opinions of experts who express their standpoints from their own perspective. Depending on the structure of expert teams, experts’ opinions can vary broadly or may even contradict. Finding the best possible compromise of experts’ opinions is a basic need in such situations. Over many years of research at Czech University of Life Sciences in Prague (ČZU), we have developed the unique BeCoMe (Best-Compromise-Mean) method for determining the optimum group decision, which corresponds to the best compromise/agreement of all experts’ opinions. The optimum decision is a result of a computationally complex fuzzy set mathematical model based on minimizing entropy.
+      </p>
+      <p>
+        The submitted tool based on the optimum BeCoMe method is a unique, helpful and easily available instrument in many decision-making situations, such as for decisions related to state security, public health, investments, flood prevention, energetic self-sufficiency, or IT contracts.
+      </p>
+
+      <h2>How Do Experts Express Their Standpoint?</h2>
+      <p>
+        Experts answer the raised question and assess a certain quantitative parameter of the proposed solution (such as the number of days of quarantine, sales time, or percentage of arable land changed to a polder).
+      </p>
+      <p>
+        Experts can express their responses in three ways:
+      </p>
       <ol className="instructions-list">
-        <li>Choose the tool you want to use: Likert or Interval.</li>
-        <li>Read the provided case study to understand the context.</li>
-        <li>Use the tool to submit your opinion.</li>
-        <li>Review the summary of your inputs.</li>
+        <li>a) Crisp number;</li>
+        <li>b) Fuzzy number/interval with a triangular membership function represented by a triple: best proposal, lower limit, and upper limit; or</li>
+        <li>c) Likert linguistic term: Strongly disagree, Rather disagree, Neutral, Rather agree, Strongly agree.</li>
       </ol>
+      <p>
+        Information on each expert’s response is inserted into the orange cells named Expert role/name and Expert proposal.
+      </p>
+      <p>
+        Please clear the columns Best proposal, Lower limit, and Upper limit before inserting data!
+      </p>
+      <p>
+        Detailed instructions for inserting data are included in the headers of the sheets “Interval tool” (for data expressed as a number of fuzzy intervals) and “Likert tool” (for data expressed as a Likert linguistic term).
+      </p>
+
+      <h2>Results:</h2>
+      <ol className="instructions-list">
+        <li>The best compromise</li>
+        <li>The maximum error of estimate</li>
+      </ol>
+
+      <h2>Copyright</h2>
+      <p>
+        Authors of the BeCoMe method and of this tool based on the BeCoMe method are:
+        <br />
+        Prof. Ing. Ivan Vrana, DrSc.
+        <br />
+        Ing. Jan Tyrychtr, PhD.
+        <br />
+        from the Department of Information Engineering, FEM, CZU in Prague.
+      </p>
+      <p>
+        If results obtained by the BeCoMe tool are published elsewhere, the authors of that publication should cite this tool as: Vrana, I., Tyrychtr, J. (2020). BeCoMe-FuzzyDecisionTool (https://covid19-become.pef.czu.cz/en), CZU Prague.
+      </p>
     </section>
   );
 };

@@ -7,6 +7,10 @@
     overflow: hidden;
     position: relative;
   }
+
+  .content{
+    margin-bottom: 30px; 
+  }
   
   @media (max-width: 768px) {
   .top-bar .navigation a {

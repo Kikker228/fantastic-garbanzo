@@ -4,11 +4,11 @@ import './TopBar.css';
 const TopBar = () => {
   return (
     <nav className="top-bar">
-      <div className="logo">BeCoMe</div>
+      <a href="/" className="logo">BeCoMe</a>
       <div className="navigation">
-        <a href="#instructions">Instructions</a>
-        <a href="#likert-tool">Likert Tool</a>
-        <a href="#interval-tool">Interval Tool</a>
+        <a href="instructions">Instructions</a>
+        <a href="likert-tool">Likert Tool</a>
+        <a href="interval-tool">Interval Tool</a>
       </div>
     </nav>
   );

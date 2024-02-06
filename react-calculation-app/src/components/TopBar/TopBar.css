@@ -1,24 +1,30 @@
 .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-}
-
-.top-bar .logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.top-bar .navigation a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  font-size: 18px;
-}
-
-.top-bar .navigation a:hover {
-  text-decoration: underline;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .top-bar .logo {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+  }  
+  .top-bar .logo a:hover {
+    text-decoration: underline;
+  }
+  
+  .top-bar .navigation a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+  }
+  
+  .top-bar .navigation a:hover {
+    text-decoration: underline;
+  }
+  
