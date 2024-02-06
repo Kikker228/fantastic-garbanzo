@@ -1,42 +1,69 @@
+/* LikertTool.css */
+
 .likert-tool {
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    margin: 10px;
-    margin-bottom: 40px; 
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
   
-  .likert-form {
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .input-table {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
   }
   
-  .likert-row {
+  .row {
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
   }
   
-  label {
-    width: 120px;
-  }
-  
   select {
-    width: 200px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
   }
   
   button {
-    margin-top: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
+    background-color: #008cba;
+    color: white;
     padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 18px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
   }
   
   .result {
     margin-top: 20px;
+    text-align: center;
   }
+  
+  .result h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .result p {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
   

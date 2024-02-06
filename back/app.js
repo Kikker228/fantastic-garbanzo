@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const BeCoMe = require('./BeCoMe'); // Путь к вашему классу BeCoMe
 
 const app = express();
+app.use(cors({ origin: 'http://localhost:3001' }));
 const port = 3000;
 
 // Используем middleware для парсинга JSON в теле запроса
@@ -10,7 +12,7 @@ app.use(bodyParser.json());
 
 // Обработчик POST-запроса для расчетов
 app.post('/calculate', (req, res) => {
-  const expertJudgments = req.body.expertJudgments;
+  const expertJudgments = req.body.expertData;
 
   if (!expertJudgments || !Array.isArray(expertJudgments) || expertJudgments.length === 0) {
     return res.status(400).json({ error: 'Invalid input data.' });

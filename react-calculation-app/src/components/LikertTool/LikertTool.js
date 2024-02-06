@@ -8,17 +8,26 @@ function LikertTool() {
   const [result, setResult] = useState(null);
 
   const handleSelectChange = (index, value) => {
+    // Создаем копию массива expertData
     const newExpertData = [...expertData];
-    newExpertData[index].value = value;
-    // Если выбран ответ 'Null', удаляем следующие поля
+  
+    // Обновляем значение мнения по индексу
+    newExpertData[index] = { value };
+  
+    // Удаляем мнения после измененного, если выбрано 'Null'
     if (value === 'Null') {
-      newExpertData.splice(index + 1);
-    } else {
-      // Если выбран ответ, добавляем новое поле для следующего мнения
+      newExpertData.splice(index, 1);
+    }
+
+  
+    // Если последнее мнение не равно 'Null', добавляем новое пустое мнение
+    if (newExpertData[newExpertData.length - 1].value !== 'Null') {
       newExpertData.push({ value: 'Null' });
     }
+  
     setExpertData(newExpertData);
   };
+  
 
   const handleCalculate = async () => {
     // Фильтруем только выбранные ответы
@@ -54,6 +63,17 @@ function LikertTool() {
   return (
     <div className="likert-tool">
       <h1>LikertTool Calculation</h1>
+      <div className="usage-instructions">
+        <h2>Usage Instructions</h2>
+        <p>
+          Welcome to the Likert Tool! This tool helps you collect expert opinions expressed as Likert linguistic terms. Follow these steps:
+        </p>
+        <ol>
+          <li>Enter expert opinions in the input table.</li>
+          <li>Click the "Calculate" button to obtain the results.</li>
+          <li>Review the results to make informed decisions.</li>
+        </ol>
+      </div>
       <div className="input-table">
         {expertData.map((item, index) => (
           <div key={index} className="row">
@@ -71,14 +91,13 @@ function LikertTool() {
           </div>
         ))}
       </div>
-      <button onClick={handleCalculate}>Рассчитать</button>
+      <button onClick={handleCalculate}>Calculate</button>
       {result && (
         <div className="result">
-          <h2>Результаты расчета:</h2>
-          {result.become.map((value, index) => (
-            <p key={index}>{`become[${index}] = ${value}`}</p>
-          ))}
-          <p>{`maxError = ${result.maxError}`}</p>
+          <h2>Calculation results:</h2>
+          {console.log(result.become)}
+          <p>BEST COMPROMISE: {result.become[0]}</p>
+          <p>{`MAX ERROR = ${result.maxError}`}</p>
         </div>
       )}
     </div>

@@ -4,7 +4,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-        <p>Footer - copyright</p>
+        <p>copyright Authors - Prof. Ing. Ivan Vrana, DrSc. Ing. Jan Tyrychtr, PhD.</p>
     </footer>
   );
 };
