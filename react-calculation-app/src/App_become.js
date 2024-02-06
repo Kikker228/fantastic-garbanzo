@@ -1,9 +1,9 @@
 // src/App.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App_become.css';
 
-function App() {
+function App_become() {
   const [expertJudgments, setExpertJudgments] = useState([
     Array(13).fill(0),
     Array(13).fill(0),
@@ -60,4 +60,4 @@ function App() {
   );
 }
 
-export default App;
+export default App_become;

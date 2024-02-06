@@ -7,6 +7,7 @@ import Instructions from './components/Instructions/Instructions';
 import TopBar from './components/TopBar/TopBar';
 import Footer from './components/Footer/Footer';
 import './App.module.css';
+import App_become from './App_become';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <TopBar />
         <Routes>
           <Route exact path="/" element={<MainPage />}/>
+          <Route path="/test" element={<App_become />}/>
           <Route path="/likert-tool" element={<LikertTool />} />
           <Route path="/interval-tool" element={<IntervalTool />} />
           <Route path="/instructions" element={<Instructions />} />
