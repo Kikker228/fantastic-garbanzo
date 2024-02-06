@@ -1,12 +1,12 @@
 import React from 'react';
-import Background from './components/BackgroundAnimation/Background';
+import MainPage from './components/MainPage/MainPage';
 import IntroModal from './components/IntroModal/IntroModal'; // Предполагается, что этот компонент уже создан
 import styles from './App.module.css';
 
 function App() {
   return (
     <div className={styles.app}>
-      <Background />
+      <MainPage />
       <IntroModal />
     </div>
   );
