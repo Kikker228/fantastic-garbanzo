@@ -1,38 +1,22 @@
 // LikertTool.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import './LikertTool.css'; // Подключите CSS-стили здесь
+import './LikertTool.css';
 
 function LikertTool() {
-  const [expertData, setExpertData] = useState([{ value: 'Null' }]);
+  const [expertCount, setExpertCount] = useState(1);
+  const [expertData, setExpertData] = useState(Array.from({ length: expertCount }, () => ({ value: '' })));
   const [result, setResult] = useState(null);
 
   const handleSelectChange = (index, value) => {
-    // Создаем копию массива expertData
     const newExpertData = [...expertData];
-  
-    // Обновляем значение мнения по индексу
     newExpertData[index] = { value };
-  
-    // Удаляем мнения после измененного, если выбрано 'Null'
-    if (value === 'Null') {
-      newExpertData.splice(index, 1);
-    }
-
-  
-    // Если последнее мнение не равно 'Null', добавляем новое пустое мнение
-    if (newExpertData[newExpertData.length - 1].value !== 'Null') {
-      newExpertData.push({ value: 'Null' });
-    }
-  
     setExpertData(newExpertData);
   };
-  
 
   const handleCalculate = async () => {
-    // Фильтруем только выбранные ответы
     const selectedAnswers = expertData
-      .filter((item) => item.value !== 'Null')
+      .filter((item) => item.value !== '')
       .map((item) => {
         switch (item.value) {
           case 'Strongly disagree':
@@ -51,8 +35,8 @@ function LikertTool() {
       });
 
     try {
-      const response = await axios.post('http://localhost:3000/calculate', {
-        expertData: selectedAnswers
+      const response = await axios.post('http://kikker.online:3000/calculate', {
+        expertData: selectedAnswers,
       });
       setResult(response.data.result);
     } catch (error) {
@@ -60,9 +44,22 @@ function LikertTool() {
     }
   };
 
+  const handleAddExpert = () => {
+    setExpertCount(expertCount + 1);
+    setExpertData([...expertData, { value: '' }]);
+  };
+
+  const handleRemoveExpert = (index) => {
+    if (expertCount === 1) return;
+    setExpertCount(expertCount - 1);
+    const newExpertData = [...expertData];
+    newExpertData.splice(index, 1);
+    setExpertData(newExpertData);
+  };
+
   return (
     <div className="likert-tool">
-      <h1>LikertTool Calculation</h1>
+      <h1>Proposal in Likert</h1>
       <div className="usage-instructions">
         <h2>Usage Instructions</h2>
         <p>
@@ -74,6 +71,21 @@ function LikertTool() {
           <li>Review the results to make informed decisions.</li>
         </ol>
       </div>
+      <div className="expert-counter">
+        <label>Number of Experts: </label>
+        <input
+          type="number"
+          value={expertCount}
+          min={1}
+          onChange={(e) => {
+            const count = parseInt(e.target.value);
+            if (!isNaN(count) && count >= 1) {
+              setExpertCount(count);
+              setExpertData(Array.from({ length: count }, () => ({ value: '' })));
+            }
+          }}
+        />
+      </div>
       <div className="input-table">
         {expertData.map((item, index) => (
           <div key={index} className="row">
@@ -81,21 +93,22 @@ function LikertTool() {
               value={item.value}
               onChange={(e) => handleSelectChange(index, e.target.value)}
             >
-              <option value="Null">Null</option>
+              <option value="">Select</option>
               <option value="Strongly disagree">Strongly disagree</option>
               <option value="Rather disagree">Rather disagree</option>
               <option value="Neutral">Neutral</option>
               <option value="Rather agree">Rather agree</option>
               <option value="Strongly agree">Strongly agree</option>
             </select>
+            <button onClick={() => handleRemoveExpert(index)}>Remove</button>
           </div>
         ))}
       </div>
+      <button onClick={handleAddExpert}>Add Expert</button>
       <button onClick={handleCalculate}>Calculate</button>
       {result && (
         <div className="result">
           <h2>Calculation results:</h2>
-          {console.log(result.become)}
           <p>BEST COMPROMISE: {result.become[0]}</p>
           <p>{`MAX ERROR = ${result.maxError}`}</p>
         </div>
