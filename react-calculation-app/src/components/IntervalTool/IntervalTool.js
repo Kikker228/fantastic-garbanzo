@@ -34,13 +34,13 @@ function IntervalTool() {
 
   const handleCalculate = async () => {
     try {
-      const response = await axios.post('http://kikker.online:3000/calculate', {
+      const response = await axios.post('http://77.91.68.118:3000/calculate', {
         expertData: expertData.map((item) => item.values),
       });
 
       const { become, maxError } = response.data.result;
 
-      const finalResponse = await axios.post('http://kikker.online:3000/Calculate', {
+      const finalResponse = await axios.post('http://77.91.68.118:3000/Calculate', {
         expertData: become.map((item) => [item]),
       });
 

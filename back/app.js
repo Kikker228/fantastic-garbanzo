@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const BeCoMe = require('./BeCoMe'); // Путь к вашему классу BeCoMe
 
 const app = express();
-app.use(cors({ origin: 'http://kikker.online:3001' }));
+app.use(cors({ origin: 'http://77.91.68.118:3001' }));
 const port = 3000;
 
 // Используем middleware для парсинга JSON в теле запроса

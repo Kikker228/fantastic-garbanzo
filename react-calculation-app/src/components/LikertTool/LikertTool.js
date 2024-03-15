@@ -35,7 +35,7 @@ function LikertTool() {
       });
 
     try {
-      const response = await axios.post('http://kikker.online:3000/calculate', {
+      const response = await axios.post('http://77.91.68.118:3000/calculate', {
         expertData: selectedAnswers,
       });
       setResult(response.data.result);
